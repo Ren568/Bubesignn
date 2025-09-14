@@ -1,0 +1,264 @@
+:root{
+  --bg:#F4F2EF;      /* ขาวอุ่น */
+  --pink:#CD4662;    /* ชมพูหลัก */
+  --green:#AEC289;   /* เขียวพาสเทล */
+  --pink-2:#F4DBD8;  /* ชมพูอ่อน */
+  --ink:#2b2b2b;
+  --ink-soft:#585858;
+  --radius:16px;
+  --shadow:0 8px 24px rgba(0,0,0,.06);
+}
+
+
+*{ box-sizing:border-box }
+html,body{ padding:0; margin:0; scroll-behavior:smooth }
+body{
+  background:var(--bg);
+  color:var(--ink);
+  font-family:Inter, system-ui, -apple-system, Segoe UI, Roboto, 'FC Iconic', "Noto Sans", "Liberation Sans", "Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol",'Akira Expanded';
+  line-height:1.6;
+}
+
+img{ max-width:100%; height:auto; display:block }
+
+.container{
+  width:min(1120px, 92%);
+  margin-inline:auto;
+}
+
+/* Header */
+.site-header{
+  position:sticky; top:0; z-index:50;
+  backdrop-filter:saturate(1.2) blur(8px);
+  background:color-mix(in oklab, var(--bg) 80%, white);
+  border-bottom:1px solid color-mix(in oklab, var(--ink) 10%, transparent);
+}
+.site-header .container{
+  display:flex; align-items:center; gap:24px; padding:14px 0;
+}
+.brand{ display:flex; align-items:center; gap:10px; text-decoration:none; color:inherit }
+.logo{
+  background:linear-gradient(135deg, var(--pink), var(--green));
+  color:white;
+  font-family:Nunito, system-ui;
+  padding:10px 14px; border-radius:999px; font-weight:800; letter-spacing:.5px;
+  box-shadow: var(--shadow);
+}
+.brand-sub{ font-weight:700; color:var(--ink-soft) }
+
+.site-nav{ margin-left:auto; display:flex; gap:18px; align-items:center }
+.site-nav a{ color:var(--ink); text-decoration:none; font-weight:600 }
+.site-nav .btn{ margin-left:6px }
+
+/* Buttons */
+.btn{
+  display:inline-flex; align-items:center; justify-content:center;
+  padding:12px 18px; border-radius:999px; text-decoration:none; font-weight:700; border:2px solid transparent;
+  transition:.2s ease transform, .2s ease box-shadow, .2s ease background;
+  box-shadow:var(--shadow);
+}
+.btn:hover{ transform:translateY(-1px) }
+.btn-primary{ background:var(--pink); color:#fff }
+.btn-primary:hover{ box-shadow:0 10px 28px rgba(205,70,98,.3) }
+.btn-ghost{ background:var(--pink-2); color:var(--ink); border-color:color-mix(in oklab, var(--pink) 25%, transparent) }
+
+/* Nav toggle (mobile) */
+.nav-toggle{ display:none; background:none; border:0; padding:6px; cursor:pointer }
+.nav-toggle span{ display:block; width:26px; height:3px; background:var(--ink); margin:5px 0; border-radius:2px }
+
+/* Hero */
+.hero{ padding:64px 0 24px }
+.grid-2{ display:grid; grid-template-columns:1.1fr .9fr; gap:36px; align-items:center }
+.eyebrow{ color:var(--pink); font-weight:800; letter-spacing:.6px; text-transform:uppercase; font-size:.85rem }
+.hero h1{ font-family:Nunito, system-ui; font-size:clamp(28px, 5vw, 44px); line-height:1.15; margin:.3em 0 .4em }
+.hero .lead{ font-size:1.05rem; color:var(--ink-soft) }
+.cta-row{ display:flex; gap:12px; margin-top:16px }
+.hero-art{ position:relative }
+.hero-art .badge{
+  position:absolute; right:6%; bottom:8%;
+  background:var(--green); color:#16321e; padding:10px 14px; border-radius:999px; font-weight:800;
+  box-shadow:var(--shadow)
+}
+
+/* Links belt */
+.links{ padding:10px 0 34px }
+.link-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:14px }
+.link-card{
+  background:var(--pink-2); border:1.5px solid color-mix(in oklab, var(--pink) 20%, transparent);
+  border-radius:var(--radius); padding:14px 16px; text-decoration:none; color:inherit; display:flex; flex-direction:column;
+  box-shadow:var(--shadow); transition:.2s;
+}
+.link-card:hover{ transform:translateY(-2px) }
+.link-card span{ font-size:.9rem; color:var(--ink-soft) }
+.link-card strong{ font-size:1.1rem; }
+
+/* About */
+.about{ padding:56px 0 }
+.about .about-avatar img{
+    border-radius: 24px;
+    border: 3px dashed color-mix(in oklab, var(--green) 45%, transparent);
+    background: white;
+    text-align: center;
+    font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+.about h2, .work h2, .downloads h2, .faq h2, .contact h2{
+  font-family:Nunito; font-size:clamp(22px, 4.2vw, 34px); margin:0 0 10px
+}
+.about .list-check{ padding-left:18px }
+.about .list-check li{ margin:6px 0 }
+
+/* Work */
+.work{ padding:56px 0 }
+.section-lead{ color:var(--ink-soft); margin-bottom:18px }
+.work-grid{
+  display:grid; gap:18px;
+  grid-template-columns:repeat(3, 1fr);
+}
+.work-card{
+  background:white; border-radius:16px; overflow:hidden; box-shadow:var(--shadow);
+  border:1px solid color-mix(in oklab, var(--ink) 8%, transparent);
+}
+.work-card img{ aspect-ratio: 4/3; object-fit:cover; width:100% }
+.work-meta{ padding:14px 14px 16px }
+.work-meta h3{ margin:0 0 6px }
+.tag-row{ display:flex; gap:8px; margin-top:8px }
+.tag{
+  background:var(--pink-2); padding:4px 10px; border-radius:999px; font-size:.85rem; border:1px solid color-mix(in oklab, var(--pink) 25%, transparent)
+}
+
+/* Downloads */
+.downloads{ padding:56px 0; background:
+  radial-gradient(180px 180px at 15% 40%, color-mix(in oklab, var(--green) 25%, transparent), transparent),
+  radial-gradient(220px 220px at 85% 60%, color-mix(in oklab, var(--pink) 20%, transparent), transparent)
+}
+.dl-grid{ display:grid; gap:18px; grid-template-columns:repeat(2,1fr) }
+.dl-card{
+  display:grid; grid-template-columns:120px 1fr; gap:14px;
+  background:white; border-radius:16px; box-shadow:var(--shadow);
+  border:1px solid color-mix(in oklab, var(--ink) 8%, transparent); padding:14px;
+}
+.dl-card img{ width:100%; height:100%; object-fit:cover; border-radius:12px }
+.dl-meta h3{ margin:0 0 6px }
+
+/* FAQ */
+.faq{ padding:56px 0 }
+details{
+  background:white; border-radius:16px; padding:14px 16px; margin:10px 0;
+  border:1px solid color-mix(in oklab, var(--ink) 8%, transparent);
+  box-shadow:var(--shadow)
+}
+summary{ cursor:pointer; font-weight:700 }
+summary::-webkit-details-marker{ display:none }
+
+/* Contact */
+.contact{ padding:56px 0; background:var(--pink-2) }
+.mail-cta{
+  display:inline-block; margin:10px 0 16px; font-weight:800; color:var(--pink); text-decoration:none;
+}
+.socials{ display:flex; gap:12px }
+.contact-form{
+  background:white; border-radius:16px; padding:16px; box-shadow:var(--shadow);
+  border:1px solid color-mix(in oklab, var(--ink) 8%, transparent)
+}
+.contact-form label{ display:block; font-weight:600; margin:10px 0 6px }
+.contact-form input, .contact-form textarea{
+  width:100%; padding:12px 14px; border-radius:10px; border:1.5px solid color-mix(in oklab, var(--ink) 15%, transparent);
+  font:inherit; background:#fff;
+}
+.contact-form button{ margin-top:10px }
+.form-note{ font-size:.95rem; color:var(--ink-soft); min-height:1.2em; }
+
+/* Footer */
+.site-footer{ padding:28px 0; background:#fff; border-top:1px solid color-mix(in oklab, var(--ink) 10%, transparent) }
+.footer-grid{ display:flex; align-items:center; justify-content:space-between; gap:16px }
+.logo.small{ display:inline-block; padding:6px 10px; font-weight:800; border-radius:999px; color:#fff; background:var(--pink) }
+
+/* Responsive */
+@media (max-width: 960px){
+  .grid-2{ grid-template-columns:1fr; }
+  .link-grid{ grid-template-columns:repeat(2,1fr) }
+  .work-grid{ grid-template-columns:repeat(2,1fr) }
+  .dl-grid{ grid-template-columns:1fr }
+  .site-nav{ position:fixed; inset:auto 0 0 0; transform:translateY(100%);
+    background:var(--bg); padding:14px 18px; display:grid; gap:10px; border-top:1px solid color-mix(in oklab, var(--ink) 10%, transparent);
+  }
+  .site-nav.open{ transform:none }
+  .nav-toggle{ display:inline-block; margin-left:auto }
+}
+@media (max-width: 560px){
+  .work-grid{ grid-template-columns:1fr }
+}
+
+
+/* ===== Work: Horizontal carousel (เพิ่มท้ายไฟล์) ===== */
+.work .section-lead{ margin-bottom:10px }
+
+/* เปิดโหมดคารูเซลด้วยคลาสที่ JS จะใส่ให้ */
+.work-grid.is-carousel{
+  display:grid;                /* คงใช้ grid */
+  grid-auto-flow: column;      /* วางต่อกันแนวนอน */
+  grid-auto-columns: minmax(260px, 42%); /* ความกว้างของการ์ดต่อช่อง */
+  gap:18px;
+  overflow-x:auto;
+  overflow-y:visible;
+  padding-bottom:8px;
+  scroll-snap-type: x mandatory;            /* ล็อกจังหวะเลื่อน */
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+}
+.work-grid.is-carousel > .work-card{
+  scroll-snap-align: start;
+  min-height: 100%;
+}
+
+/* เอฟเฟ็กต์เลื่อน: ให้ภาพจางและเบลอนิด ๆ ระหว่างกำลังเลื่อน */
+.work-grid.is-carousel.scrolling .work-card img{
+  filter: blur(1.5px) saturate(1.05);
+  opacity: .92;
+  will-change: transform, filter, opacity;
+}
+
+/* Hover interaction บนการ์ด */
+.work-grid.is-carousel .work-card{
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+.work-grid.is-carousel .work-card:hover{
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 14px 36px rgba(0,0,0,.12);
+}
+.work-grid.is-carousel .work-card img{
+  transition: transform .35s ease, filter .35s ease, opacity .2s ease;
+}
+.work-grid.is-carousel .work-card:hover img{
+  transform: scale(1.06) rotate(.3deg);
+}
+
+/* ลากเพื่อเลื่อนได้ (cursor) */
+.work-grid.is-carousel{
+  cursor: grab;
+}
+.work-grid.is-carousel.dragging{
+  cursor: grabbing;
+}
+
+/* Responsive ปรับขนาดช่อง */
+@media (max-width: 960px){
+  .work-grid.is-carousel{ grid-auto-columns: 60%; }
+}
+@media (max-width: 560px){
+  .work-grid.is-carousel{ grid-auto-columns: 78%; }
+}
+
+.work-grid.is-carousel{
+  grid-template-columns: unset;           /* ยกเลิก repeat(3,1fr) เดิม */
+  grid-auto-flow: column;                  /* วางแนวนอน */
+  grid-auto-columns: minmax(260px, 42%);   /* ใกล้เคียงขนาดเดิมที่ใช้ใน 3 คอลัมน์ */
+  gap: 18px;
+  overflow-x: auto;
+  overflow-y: visible;
+  padding-bottom: 8px;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+}
+
